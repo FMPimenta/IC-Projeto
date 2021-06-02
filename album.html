@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--Grupo:003, Nomes: Francisco Pimenta - 54973, Pedro Quintão - 54971, Miguel Duarte - 54941, Gonçalo Ferreira - 55166-->
+
+<html lang="pt-pt">
+    <head>
+        <title>Memento</title>
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <link rel="icon" href="images/logo_Memento1.png">
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div class="container">
+            <header>
+                <img src="https://fontmeme.com/permalink/201105/65accd916ad7ea7ffc6c7b7279901614.png" id="memento-top-left" alt="fonte-against-romance">
+            </header>            
+
+            <div id="top-right-bar">
+
+                <div id="left-top-right-bar">
+                    <button id="botao-criar-album" onclick="abreNomeAlbum()">Novo</button>
+                    <button id="botao-selecionar-album" onclick="enable_galeria()">Selecionar</button>
+                    <button id="botao-selecionar-todos-album" onclick="selecionaTodos('album')">Selecionar Todos</button>
+                </div>
+                
+                <div id="centro-top-bar">
+                    <img src="https://fontmeme.com/permalink/201119/cccc29a8d5a122291e8ba6d829653ec4.png" alt="fonte-against-romance">
+                </div>  
+
+                <div id="right-top-right-bar">
+                    <button id="botao-eliminar" onclick="open_popup('popup-eliminar-fotos-geral')"><img src="images/lixo4_icon.png" width="22px" alt="icon "></button>
+                    <button id="botao-partilhar" onclick="guardarFotosAlbum()" ><img src="images/partilhar4_icon.png" width="35px" alt=""></button>
+                </div>
+          
+            </div>
+            
+
+            <div id="side-bar">
+                <nav id="navegador" class="menu">
+                    <a href="importar.html">Importar <img id="imp_icon" src="images/importar3_icon.png" style="vertical-align:middle" width="40px" alt=""></a>
+                    <a href="galeria.html">Galeria <img id="gal_icon" src="images/galeria3_icon.png" style="vertical-align:middle" width="45px"  alt=""></a>  
+                    <a id="currentpage" href="#">Álbuns <img id="alb_icon" src="images/album3_icon.png" style="vertical-align:middle" width="50px"> </a>
+                    <a href="favoritos.html">Favoritos <img id="fav_icon" src="images/favoritos3_icon.png" style="vertical-align:middle" width="45px"></a>
+                    <a href="partilhar.html">Partilhar <img id="par_icon" src="images/partilhar4_icon.png" style="vertical-align:middle" width="45px"></a>
+                    <a href="lixo.html">Lixo <img id="lix_icon" src="images/lixo2_icon.png" style="vertical-align:middle" width="23px"></a>
+                    <a href="ajuda.html">Ajuda <img id="aju_icon" src="images/ajuda3_icon.png" style="vertical-align:middle" width="40px"></a>
+                    <a href="sobre.html">Sobre <img id="sob_icon" src="images/sobre_icon.png" style="vertical-align:middle" width="45px"></a>
+                </nav>
+                
+                <div id="memento">
+                    <img src="images/logo_Memento1.png" width="110px" alt="">
+                </div>  
+                <div id="usernameCurrentAccount"></div>
+                <div class="dropup">
+                    <div class="botao-dropup" onclick="open_dropup()"><img src="images/utilizador_icon.png" width="50" alt="utilizador icon"></div>
+                    <div class="dropup-content">
+                      <a href="index.html">Sair</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workspace">
+                <div id="div-filtros-aplicados"></div>
+                <button class="voltar" onclick="mostraCapaAlbunsWorkspace()">Voltar</button>
+                <p id="p-album"></p>
+                <div id="disposicao-albuns">
+                    <table id="disposicao-albuns-tabela">
+                        <tbody>
+                        </tbody>
+                    </table>    
+
+                    <table id="imagens-album-tabela">
+                        <tbody>
+                        </tbody>
+                    </table>    
+                </div>
+
+                <div class="album_modal">
+                    <div class="album_modal_content">
+                        <span class="close_button" onclick="closeNomeAlbum()">&times;</span>
+                        <h2>Indique o nome do Álbum:</h2>
+                        <form name="nomeDoAlbum">
+                            <input type="text" name="aName" onkeyup="verificaCampo();">
+                        </form>
+                        <br>
+                        <button class="botao-cancelar" onclick="closeNomeAlbum()">Cancelar</button>
+                        <button id="botao-confirmar" onclick="nomeAlbumDado();">Confirmar</button>
+                    </div>                    
+                </div>
+                
+                <div id="opcoes-album">
+                    <p>As fotos do seu álbum:</p>
+                    <div class="closeButton" onclick = "closeAlbumPhotos()"> &times; </div>
+                </div>
+
+                <div id="fundo-fotos-album">
+                    <table id="fotos-album">
+                        <tbody>
+                        </tbody>
+                    </table>    
+
+                </div>
+
+                <div class="popup-eliminar-fotos-geral">
+                    <p class="numero-albuns-eliminar"></p> <br>
+                    <button class="botao-popup-eliminar-cancelar" onclick="close_popup('popup-eliminar-fotos-geral')">Cancelar</button>
+                    <button class="botao-popup-eliminar-confirmar" onclick="delete_albums()" >Confirmar</button>
+                    <div class="closeButton" onclick = "close_popup('popup-eliminar-fotos-geral')"> &times; </div>
+                </div>
+
+                <div class="slideShow">
+                    <img id="imagemCarrossel" width="800" height="480" alt="">
+                    <img onclick="slideShow('direita')" id="seta-direita" src="images/seta_direita.png" width="30" alt="">
+                    <img onclick="slideShow('esquerda')" id="seta-esquerda" src="images/seta_esquerda.png" width="30" alt="">
+                    <div id="x-slideShow" onclick = "close_open_slideShow('fechar', '')"> &times; </div>
+                </div>
+                <p class="numero-fotografias"></p>
+                
+                <button id="remover-filtros-album" onclick="aplica_filtros('remover-filtros')">Remover Filtros</button>
+                <div class="popup-filtros" id="popup-filtros-album">
+                        <form name="filtros">
+                            <input type="checkbox" id="desfocadas" name="desfocadas" value="desfocadas">
+                            <label for="desfocadas"> Desfocadas</label><br>
+                            <input type="checkbox" id="dia" name="dia" value="dia">
+                            <label for="dia"> Dia </label><br>
+                            <input type="checkbox" id="jack_russell" name="jack_russell" value="jack_russell">
+                            <label for="jack_russell"> Jack Russell</label><br>
+                            <input type="checkbox" id="localização" name="localizacao" value="localizacao" onclick="abreLocalizacao()">
+                            <label for="localização"> Localização</label><br>
+                            <input type="checkbox" id="monumentos" name="monumentos" value="monumentos">
+                            <label for="monumentos"> Monumentos</label><br>
+                            <input type="checkbox" id="praia" name="praia" value="praia">
+                            <label for="praia"> Praia </label><br><br>
+                            <div id="filtros-localizacao">  
+                                <input type="checkbox" id="franca" name="franca" value="franca">
+                                <label for="franca"> França </label><br>
+                                <input type="checkbox" id="cuba" name="cuba" value="cuba">
+                                <label for="cuba"> Cuba </label><br><br>
+                            </div>
+                        </form>
+                        <button onclick="aplica_filtros('filtros')" id="botao-confirmar-filtros">Confirmar</button>
+                        <button id="botao-cancelar-filtros" onclick="tiraFiltros()">Cancelar</button>
+                </div>
+
+                <div class="popup-album">
+                    <button id="botao-selecionar-todas-album" onclick="selecionaTodos('popup')">Selecionar Todas</button>
+                    <div class="closeButton" onclick = "closeCriaAlbum()"> &times; </div>
+                    <p id="texto-cria-album">Selecione as fotografias que deseja adicionar ao seu álbum:</p>
+                    <button id="botao-cancelar-selecao" onclick="closeCriaAlbum()" >Cancelar</button>
+                    <button id="botao-confirmar-selecao" onclick="preencheTabelaAlbumCriado()">Confirmar</button>
+                    <p id="text-creation-filtros"></p>
+                    <div class="botao-filtros" id="botao-filtros-album" onclick="openFiltros()" ><img id="imagem_filtros" src="images/filtros_icon_black.png" width="40" height="40"  alt=""></div>
+                    <div id="fotos-adicionar-album">
+                        <table id="tabela-album">
+                            <tbody>
+                            
+                            </tbody>
+                        </table>    
+                    </div>
+                </div>
+    
+                <div class="popupFiltrosAplicados-album"><p>
+                    <button type="button" id="botao-popup-filtros-aplicados" onclick="closePopupFiltrosAplicados()">OK</button>
+                </p>               
+                </div>
+
+
+                <div class="popupMesmoNomeAlbum"><p>TESTETESTETESTETESTETESTETESTETESTETESTETESTE</p>               
+                </div>
+    
+    
+                <div class="popupAlbum"><p>O seu álbum foi criado com sucesso!
+                    <button type="button" class="botao-popup" onclick="closePopupAlbumCriado()">OK</button>
+                </p>                
+                </div>
+                <div id="popup-sem-fotos"><p>Ainda não tem fotos na sua galeria. Importe primeiro!</p> </div>
+                
+
+            </div>
+
+            
+        </div>
+        <div class="dimmer">
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="scripts/album_pageScripts.js"></script>
+    </body>
+</html>
+
+

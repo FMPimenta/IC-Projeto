@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--Grupo:003, Nomes: Francisco Pimenta - 54973, Pedro Quintão - 54971, Miguel Duarte - 54941, Gonçalo Ferreira - 55166-->
+
+<html lang="pt-pt">
+    <head>
+        <title>Memento</title>
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <link rel="icon" href="images/logo_Memento1.png">
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div class="dimmer"></div>
+
+        <div class="container">
+            <header>
+                <img src="https://fontmeme.com/permalink/201105/65accd916ad7ea7ffc6c7b7279901614.png" id="memento-top-left" alt="fonte-against-romance">
+            </header>
+
+            <div id="top-right-bar">
+
+                <div id="left-top-right-bar">
+                    <button id="botao-selecionar-favoritos" onclick="enable_favoritos()" >Selecionar</button>
+                    <button id="botao-selecionar-todas-favoritos" onclick="seleciona_todos()" >Selecionar Todas</button>
+                </div>
+                
+                <div id="centro-top-bar">
+                    <div> <img src="https://fontmeme.com/permalink/201211/c59717d61dbc3c14ff151908bf090e01.png" alt="fonte-against-romance"></div>                     
+                </div>  
+
+                <div id="right-top-right-bar">
+                    <button id="botao-recuperar-fotografias" onclick="open_popup()">Recuperar Fotografias</button>
+                    
+                </div>
+          
+            </div>
+
+            <div id="side-bar">            
+                <nav class="menu">
+                    <a href="importar.html">Importar <img id="imp_icon" src="images/importar3_icon.png" style="vertical-align:middle" width="40px" alt=""></a>
+                    <a  href="galeria.html">Galeria <img id="gal_icon" src="images/galeria3_icon.png" style="vertical-align:middle" width="45px"  alt=""></a>  
+                    <a href="album.html">Álbuns <img id="alb_icon" src="images/album3_icon.png" style="vertical-align:middle" width="50px"> </a>
+                    <a href="favoritos.html">Favoritos <img id="fav_icon" src="images/favoritos3_icon.png" style="vertical-align:middle" width="45px"></a>
+                    <a href="partilhar.html">Partilhar <img id="par_icon" src="images/partilhar4_icon.png" style="vertical-align:middle" width="45px"></a>
+                    <a id="currentpage" href="#">Lixo <img id="lix_icon" src="images/lixo2_icon.png" style="vertical-align:middle" width="23px"></a>
+                    <a href="ajuda.html">Ajuda <img id="aju_icon" src="images/ajuda3_icon.png" style="vertical-align:middle" width="40px"></a>
+                    <a href="sobre.html">Sobre <img id="sob_icon" src="images/sobre_icon.png" style="vertical-align:middle" width="45px"></a>
+                </nav>
+
+                <div id="memento">
+                    <img src="images/logo_Memento1.png" width="110px" alt="">
+                </div>
+                
+                <div id="usernameCurrentAccount"></div>
+
+                <div class="dropup">
+                    <div class="botao-dropup" onclick="open_dropup()"><img src="images/utilizador_icon.png" width="50" alt="utilizador icon"></div>
+                    <div class="dropup-content">
+                      <a href="index.html">Sair</a>
+                    </div>
+                </div>   
+            </div>
+
+
+            <div class="workspace">
+                <table id="lixo">
+                    
+                    <tbody>
+                      
+                    </tbody>
+                      
+                </table>
+
+                <div class="popup-eliminar-fotos-geral">
+                    <p class="numero-fotografias-recuperar"></p> <br>
+                    <button class="botao-popup-eliminar-cancelar" onclick="close_popup()">Cancelar</button>
+                    <button class="botao-popup-eliminar-confirmar" onclick="recuperarFotos()">Confirmar</button>
+                    <div class="closeButton" onclick = "close_popup()"> &times; </div>  
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="scripts/lixo_pageScripts.js"></script>
+        
+    </body>
+</html>

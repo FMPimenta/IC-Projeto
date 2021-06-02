@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--Grupo:003, Nomes: Francisco Pimenta - 54973, Pedro Quintão - 54971, Miguel Duarte - 54941, Gonçalo Ferreira - 55166-->
+
+<html lang="pt-pt">
+    <head>
+        <title>Memento</title>
+        <link id="estilos-css" rel="stylesheet" type="text/css" href="styles/style.css">
+        <link rel="icon" href="images/logo_Memento1.png">
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+
+        <div class="dimmer"></div>
+        
+        <div class="container">
+            <header>
+                <img src="https://fontmeme.com/permalink/201105/65accd916ad7ea7ffc6c7b7279901614.png" id="memento-top-left" alt="fonte-against-romance">
+            </header>
+
+            <div id="top-right-bar">
+
+                <div id="left-top-right-bar">
+                    <div class="botao-filtros" id="botao-filtros-galeria" onclick="openFiltros()" ><img id="imagem_filtros" src="images/filtros_icon.png" width="40" height="40"  alt=""></div>
+                    <button id="botao-selecionar-galeria" onclick="enable_galeria()" >Selecionar</button>
+                    <button id="botao-selecionar-todas-galeria" onclick="seleciona_todos()" >Selecionar Todas</button>
+                </div>
+                
+                <div id="centro-top-bar">
+                    <img src="https://fontmeme.com/permalink/201105/fd4c0143f103362a981ab82853ef4c14.png" alt="fonte-against-romance">
+                </div>  
+
+                <div id="right-top-right-bar">
+                    <button id="botao-criar-galeria" onclick="guardarFotos('fotosAlbum')">Criar Álbum</button>
+                    <button id="botao-adicionar" onclick="open_popup('popup-adicionar-fotos-galeria')">Adicionar</button>
+                    <button id="botao-eliminar" onclick="open_popup('popup-eliminar-fotos-geral')"><img src="images/lixo4_icon.png" width="22px" alt=""></button>
+                    <button id="botao-partilhar"><img onclick="guardarFotos('fotosPartilhar')" src="images/partilhar4_icon.png" width="35px" alt=""></button>
+                </div>
+          
+            </div>
+            
+            <div id="side-bar">
+                <nav class="menu">
+                    <a href="importar.html">Importar <img id="imp_icon" src="images/importar3_icon.png" style="vertical-align:middle" width="40px" alt=""></a>
+                    <a id="currentpage" href="#">Galeria <img id="gal_icon" src="images/galeria3_icon.png" style="vertical-align:middle" width="45px"  alt=""></a>  
+                    <a href="album.html">Álbuns <img id="alb_icon" src="images/album3_icon.png" style="vertical-align:middle" width="50px"> </a>
+                    <a href="favoritos.html">Favoritos <img id="fav_icon" src="images/favoritos3_icon.png" style="vertical-align:middle" width="45px"></a>
+                    <a href="partilhar.html">Partilhar <img id="par_icon" src="images/partilhar4_icon.png" style="vertical-align:middle" width="45px"></a>
+                    <a href="lixo.html">Lixo <img id="lix_icon" src="images/lixo2_icon.png" style="vertical-align:middle" width="23px"></a>
+                    <a  href="ajuda.html">Ajuda <img id="aju_icon" src="images/ajuda3_icon.png" style="vertical-align:middle" width="40px"></a>
+                    <a href="sobre.html">Sobre <img id="sob_icon" src="images/sobre_icon.png" style="vertical-align:middle" width="45px"></a>   
+                </nav>
+
+                <div id="memento">
+                    <img src="images/logo_Memento1.png" width="110px" alt="">
+                </div>
+                <div id="usernameCurrentAccount"></div>
+                <div class="dropup">
+                    <div class="botao-dropup" onclick="open_dropup()"><img src="images/utilizador_icon.png" width="50" alt="utilizador icon"></div>
+                    <div class="dropup-content">
+                      <a href="index.html">Sair</a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="workspace">
+                <div id="div-filtros-aplicados"></div>
+                <p id="p-album"></p>
+                <table id="tabela">
+                    
+                    <tbody>
+                      
+                    </tbody>
+                      
+                </table>  
+
+                <div id="popup-adicionar-fotos-galeria">
+                    Para onde deseja adicionar as fotografias selecionadas? <br>
+                    <div id="botao-popup-adicionar-album"><img src="images/album3_icon.png" width="70px" height="70px" alt="" onclick=" open_addFotosAlbum()"> Álbum </div>
+                    <div id="botao-popup-adicionar-favoritos" onclick="guardarFotos('fotosFavoritas')"><a href="favoritos.html"><img src="images/favoritos3_icon.png" width="70px" height="70px" alt=""> </a>Favoritos</div>
+                    <button id="botao-popup-adicionar-cancelar" onclick="close_popup('popup-adicionar-fotos-galeria')">Cancelar</button>
+                    <div class="closeButton" onclick = "close_popup('popup-adicionar-fotos-galeria')"> &times; </div>
+                </div>
+
+                <div id="popup-adicionar-fotos-album">
+                    <div class="closeButton" onclick="close_popup('popup-adicionar-fotos-album')"> &times; </div>
+                    <p id="texto-seleciona">Escolha o albúm para o qual quer adicionar as fotos selecionadas:</p> <br>
+
+                    <div id="adicionar-album">
+                        <table id="tabela-adicionar-fotos-album">
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <button id="botao-popup-cancelar" onclick="close_popup('popup-adicionar-fotos-album')">Cancelar</button>
+                    <button id="botao-popup-confirmar" onclick="add_fotos_album()">Confirmar</button>
+                    
+                    
+                </div>
+
+                <div class="popup-eliminar-fotos-geral">
+                    <p class="numero-albuns-eliminar"></p> <br>
+                    <button class="botao-popup-eliminar-cancelar" onclick="close_popup('popup-eliminar-fotos-galeria')">Cancelar</button>
+                    <button class="botao-popup-eliminar-confirmar" onclick="nova_galeria_eliminada()" >Confirmar</button>
+                    <div class="closeButton" onclick = "close_popup('popup-eliminar-fotos-galeria')"> &times; </div>
+                </div>
+                
+                    
+            <div class="popup">
+                <p>As suas fotos foram importadas com sucesso!
+                    <button type="button" class="botao-popup" onclick="closePopup('popup')">OK</button>
+                </p>              
+            </div>
+
+            <div class="slideShow">
+                    <img id="imagemCarrossel" width="800" height="480" alt="">
+                    <img onclick="slideShow('direita')" id="seta-direita" src="images/seta_direita.png" width="30" alt="">
+                    <img onclick="slideShow('esquerda')" id="seta-esquerda" src="images/seta_esquerda.png" width="30" alt="">
+                    <div id="x-slideShow" onclick = "close_open_slideShow('fechar', '')"> &times; </div>
+            </div>
+            <p class="numero-fotografias"></p>
+            </div>
+            <button id="remover-filtros" onclick="aplica_filtros('remover-filtros')">Remover Filtros</button>
+            <div class="popup-filtros" id="popup-filtros-galeria">
+                <form name="filtros">
+                    <input type="checkbox" id="desfocadas" name="desfocadas" value="desfocadas">
+                    <label for="desfocadas"> Desfocadas</label><br>
+                    <input type="checkbox" id="dia" name="dia" value="dia">
+                    <label for="dia"> Dia </label><br>
+                    <input type="checkbox" id="jack_russell" name="jack_russell" value="jack_russell">
+                    <label for="jack_russell"> Jack Russell</label><br>
+                    <input type="checkbox" id="localização" name="localizacao" value="localizacao" onclick="abreLocalizacao()">
+                    <label for="localização"> Localização</label><br>
+                    <input type="checkbox" id="monumentos" name="monumentos" value="monumentos">
+                    <label for="monumentos"> Monumentos</label><br>
+                    <input type="checkbox" id="praia" name="praia" value="praia">
+                    <label for="praia"> Praia </label><br><br>
+                    <div id="filtros-localizacao">  
+                        <input type="checkbox" id="franca" name="franca" value="franca">
+                        <label for="franca"> França </label><br>
+                        <input type="checkbox" id="cuba" name="cuba" value="cuba">
+                        <label for="cuba"> Cuba </label><br><br>
+                    </div>
+                </form>
+                <button onclick="aplica_filtros('filtros')" id="botao-confirmar-filtros">Confirmar</button>
+                <button id="botao-cancelar-filtros" onclick="tiraFiltros()">Cancelar</button>
+            </div>
+            <div class="popupFiltrosAplicados"><p>Os seus filtros foram aplicados com sucesso!
+                <button type="button" class="botao-popup" onclick="closePopupFiltrosAplicados()">OK</button>
+            </p>               
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="scripts/galeria_pageScript.js"></script>
+        <script src="scripts/login_pageScript.js"></script>
+    </body>
+</html>
